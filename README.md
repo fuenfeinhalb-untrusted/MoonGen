@@ -78,6 +78,17 @@ Note: You need to bind NICs to DPDK to use them. `bind-interfaces.sh` does this 
 Use `libmoon/deps/dpdk/usertools/dpdk-devbind.py ` to manage NICs manually.  
 If you have secure boot enabled (by default in ubuntu 20.04 LTS), you will get a permission denied error on the insmod command of the kernel module when running `sudo ./bind-interfaces.sh`. You can temporarely disable secure boot on ubuntu with the steps described [here](https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS) to permit the unsigned driver to load.
 
+## Setup on Xubuntu
+
+1. install git and clone this repo
+2. apt install dpdk dpdk-dev dpdk-kmods-dkms libluajit-5.1-dev libssl-dev libhi>
+3. link python3 to python, and switch to gcc & g++ 12:
+        sudo ln /usr/bin/python3 /usr/bin/python
+        (sudo rm /usr/bin/gcc /usr/bin/g++)
+        sudo ln /usr/bin/gcc-12 /usr/bin/gcc
+        sudo ln /usr/bin/g++-12 /usr/bin/g++
+4. ./build.sh
+
 
 ## Dependencies
 * gcc >= 4.8
