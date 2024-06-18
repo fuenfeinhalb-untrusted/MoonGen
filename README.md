@@ -81,7 +81,7 @@ If you have secure boot enabled (by default in ubuntu 20.04 LTS), you will get a
 ## Setup on Xubuntu
 
 1. install git and clone this repo
-2. apt install dpdk dpdk-dev dpdk-kmods-dkms libluajit-5.1-dev libssl-dev libssl-dev libhighwayhash-dev libtbb-dev cmake
+2. apt install dpdk dpdk-dev dpdk-kmods-dkms libluajit-5.1-dev libssl-dev libssl-dev libhighwayhash-dev libtbb-dev cmake gcc-12 g++-12
 3. link python3 to python
         sudo ln /usr/bin/python3 /usr/bin/python
 4. ./build.sh (no sudo - at least on first execution)
