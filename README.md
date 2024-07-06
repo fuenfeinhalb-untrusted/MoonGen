@@ -12,7 +12,7 @@ sudo apt install dpdk dpdk-dev dpdk-kmods-dkms libluajit-5.1-dev libssl-dev libs
 # link python3 to python
 sudo ln /usr/bin/python3 /usr/bin/python
 # build MoonGen (without sudo)
-cd ~/MonnGen && ./build.sh
+cd ~/MoonGen && ./build.sh
 # now resume in the testbed repository ...
 ```
 
