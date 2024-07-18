@@ -1,3 +1,23 @@
+### 5½ Modifications
+This repository was forked in June 2024 because it could only be compiled on Ubuntu 18.04 with glibc version <=2.27. Benedict patched this to work on Xubuntu 24.04.
+Install instructions for Xubuntu 24.04:
+
+```bash
+# install git
+sudo apt install -y git
+# clone this repo
+cd ~ && git clone git@github.com:fuenfeinhalb-untrusted/MoonGen.git
+# install dependencies
+sudo apt install dpdk dpdk-dev dpdk-kmods-dkms libluajit-5.1-dev libssl-dev libssl-dev libhighwayhash-dev libtbb-dev cmake gcc-12 g++-12
+# link python3 to python
+sudo ln /usr/bin/python3 /usr/bin/python
+# build MoonGen (without sudo)
+cd ~/MoonGen && ./build.sh
+# now resume in the testbed repository ...
+```
+
+--------------------
+
 ### TL;DR
 LuaJIT + DPDK = fast and flexible packet generator for 10 Gbit/s Ethernet and beyond.
 MoonGen uses hardware features for accurate and precise latency measurements and rate control.
@@ -77,15 +97,6 @@ A more detailed evaluation can be found in [our paper](http://www.net.in.tum.de/
 Note: You need to bind NICs to DPDK to use them. `bind-interfaces.sh` does this for all unused NICs (no routing table entry in the system).
 Use `libmoon/deps/dpdk/usertools/dpdk-devbind.py ` to manage NICs manually.  
 If you have secure boot enabled (by default in ubuntu 20.04 LTS), you will get a permission denied error on the insmod command of the kernel module when running `sudo ./bind-interfaces.sh`. You can temporarely disable secure boot on ubuntu with the steps described [here](https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS) to permit the unsigned driver to load.
-
-## Setup on Xubuntu
-
-1. install git and clone this repo
-2. apt install dpdk dpdk-dev dpdk-kmods-dkms libluajit-5.1-dev libssl-dev libssl-dev libhighwayhash-dev libtbb-dev cmake gcc-12 g++-12
-3. link python3 to python
-        sudo ln /usr/bin/python3 /usr/bin/python
-4. ./build.sh (no sudo - at least on first execution)
-
 
 ## Dependencies
 * gcc >= 4.8
